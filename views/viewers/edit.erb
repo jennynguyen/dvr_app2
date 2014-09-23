@@ -1,0 +1,7 @@
+<form method="POST" action="/viewers/<%= @id %>/edit" >
+  <input type="hidden" name="_method" value="PUT" />
+  new name
+  <input type="text" name="name"/>
+  <input type="hidden" name ="id" value="<%= @id %>" />
+  <input type="submit"/>
+</form>

@@ -1,0 +1,11 @@
+<header>
+  <p><a href="/">Creat a new viewer</a></p>
+  <p><%= @viewer.name %></p>
+  <p><form method="POST" action="/session">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="submit" value="Logout" />
+  </form></p>
+</header>
+
+
+
