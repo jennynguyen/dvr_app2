@@ -31,9 +31,55 @@ class App < ApplicationController
     redirect to('/')
   end
 
-  # viewer SHOW
-  get('/viewers/:id') do
-    @viewer = Viewer.find(id: params[:id])
-    render(:erb, :'viewers/show')
+  get('/viewers') do
+    # redirect to ('/viewers')
   end
+
+  get('/viewers/new') do
+    render(:erb, :"viewers/new")
+  end
+
+  get ('/viewers/:id') do
+    @viewer = Viewer.find(id:params[:id])
+    render(:erb, :"viewers/show")
+  end
+
+
+  get('/viewers') do
+    @viewers = Viewer.all
+    render(:erb, :"viewers/index" )
+  end
+
+  get('/viewers/:id/edit') do
+    @id = params["id"]
+    render(:erb, :"viewers/edit")
+  end
+
+  put('/viewers/:id/edit') do
+    viewer = Viewer.find(id:params[:id])
+    viewer.name = params["name"]
+    viewer.save
+    # redirect to("/viewers")
+  end
+
+
+  post('/viewers') do
+    new_viewer = params["viewer"]
+    v = Viewer.new(new_viewer)
+    v.save
+    # redirect to ('/viewers')
+  end
+
+  delete('/viewers') do
+    id = params["delete"]
+    # binding.pry
+    delete = Viewer.find(id:id)
+    # redirect to ('/viewers')
+  end
+
+
+
+
+
+
 end
