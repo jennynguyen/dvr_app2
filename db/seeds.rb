@@ -7,11 +7,11 @@ require 'zip'
 require 'sequel'
 require 'yaml'
 
-# connect to db
-DB = Sequel.connect("postgres://localhost/dvr_app2_development")
+# # connect to db
+# DB = Sequel.connect("postgres://localhost/dvr_app2_development")
 
-# require models (important to do this after connecting to the DB, remember!)
-Dir["../models/*.rb"].each {|file| require file }
+# # require models (important to do this after connecting to the DB, remember!)
+# Dir["../models/*.rb"].each {|file| require file }
 
 # clean it out!
 Episode.dataset.destroy
